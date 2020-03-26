@@ -2,6 +2,7 @@ package org.example.springAOP;
 
 
 import org.example.springAOP.model.Circle;
+import org.example.springAOP.model.Triangle;
 import org.example.springAOP.service.ShapeService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,9 @@ public class myApplication {
         ApplicationContext ct = SpringApplication.run(myApplication.class, args);
         Circle circle = ct.getBean(Circle.class);
         circle.setName("circle name");
+        Triangle tri = ct.getBean(Triangle.class);
+        tri.setName("Triangle name");
         ShapeService service = ct.getBean(ShapeService.class);
-        System.out.println(service.getCircle().getName());
+        System.out.println(service.getTriangle().getName());
     }
 }
