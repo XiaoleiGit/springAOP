@@ -27,7 +27,17 @@ public class Helper {
         System.out.println("This is the second advice");
     }
 
+    @Before("allModelMethods()")
+    public void thirdAdvice() {
+        System.out.println("This is the 3rd advice");
+    }
+
     @Pointcut("execution(public * getName())")
     public void allGetters(){}
+
+//    @Pointcut("within(org.example.springAOP.model.*)") means apply to model package
+//    @Pointcut("within(org.example.springAOP.model..*)") means apply to model and underneath package
+    @Pointcut("within(org.example.springAOP.model.*)")
+    public void allModelMethods(){}
 
 }
